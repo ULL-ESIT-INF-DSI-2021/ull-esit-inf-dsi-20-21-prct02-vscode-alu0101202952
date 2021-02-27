@@ -3,7 +3,7 @@
 # Informe Práctica 2: Instalación y configuración de Visual Studio Code
 
 
-![Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.programaenlinea.net%2Fplugins-para-visual-studio-code%2F&psig=AOvVaw0QGlOgvohMyy2lJKnKK2jn&ust=1614516600673000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDm9ZWNiu8CFQAAAAAdAAAAABAD)
+![Image](https://i.imgur.com/UqPxPnZ.jpg)
 
 
 
@@ -58,7 +58,7 @@ Los objetivos en esta práctica serán la instalación y configuración de Visua
 
 Antes de comenzar se nos requiere que aceptemos la tarea asignada en el GitHub Classroom:
 
-![Asignación GitHub Classroom](https://imgur.com/gallery/8MJ62oY)
+![Asignación GitHub Classroom](https://i.imgur.com/JPwjWBt.jpg)
 
 Con ello ya podríamos trabajar en esta práctica.
 
@@ -67,85 +67,46 @@ Con ello ya podríamos trabajar en esta práctica.
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
 
 
-## CONFIGURACIÓN MÁQUINA IAAS
+## INSTALACIÓN Y CONFIGURACIÓN DE VISUAL STUDIO CODE
 
 
-Lo primero para poder acceder al servicio de máquinas virtuales del IaaS es configurar la VPN, en mi caso ya la tengo configurada gracias a la aplicación de **GlobalProtect**, a la cual accedo a la VPN de la ULL introduciendo en el usuario `aluxxxxxxxxxx` y en la contraseña `contraseña_institucional`. Y así nos conectaríamos.
-『』[VPN_acceso](https://drive.google.com/file/d/19OsVf77mYxXfyt7Qb0S1zYPXx1RQ3KTv/view)
+Lo primero sería instalar el Visual Studio Code, como yo ya lo tenía simplemente lo ejecuté poniendo en la terminal :
 
-Una vez dentro del servicio https://iaas.ull.es/ovirt-engine/, tras meterme con mi alu y contraseña, enciendo mi máquina virtual asignada en la asignatura de Desarrollo de Sistemas Informáticos (DSI) con un identificador, en mi caso es **DSI-31**.
-『』[Máquina virtual DSI-31](https://drive.google.com/file/d/1aSENTWgb3IIfF8K_ADWfvdmqduShmMH4/view)
+> `$code .`
 
-Cuando la enciendo, desde mi subsistema Linux Ubuntu 18.04 LTS me conecto a ella mediante el commando:
+### CONFIGURACIÓN DE VISUAL STUDIO CODE PARA CONECTARSE A UNA MÁQUINA REMOTA POR SSH
 
-> `andreacc@DESKTOP-EMSOIU9:~$ ssh usuario@10.6.XXX.XXX` 
-Esto con la IP de mi máquina virtual
+El siguiente paso será como su nombre indica poder conectarse desde el VSC a una máquina remota, en mi caso, la máquina con host: _iaas-dsi31_
+Previamente y cómo se sabe tenemos que conectarnos a la VPN de la Universidad de La Laguna:
 
-Lo primero que se me pide es cambiar la contraseña actual (usuario) por una mía que pueda recordar. Tras ellos comenzaría a configurar el fichero **hostname** con el nombre de mi host en la máquina, esto será necesario para poder acceder a la máquina desde local mediante el host asignado:
+![VPN](https://i.imgur.com/w4WhqxN.jpg)
 
-**iaas-dsi31**
+A continuación pulsando la tecla > `F1` estando en el VSC se abriría una barra con opciones de conexión remota, y pincharíamos sobre > `Remote-SSH: Connect to Host...`, como se puede ver veríamos distintos Host pero como queremos añadir el host de nuestra máquina virtual, tendríamos que pinchar sobre > `Configure SSH Hosts...` y con ello añadir el host de la máquina remota **iaas-dsi31**:
 
-Mediante el comando: 
-> `sudo vi /etc/hostname`
+![Connect to Host](https://i.imgur.com/YGGx7Wy.jpg)
 
-Pero además necesitamos modificar otro fichero para conseguir lo previsto, con:
-> `sudo vi /etc/hosts`
+Veríamos el fichero donde debemos añadir el host > `~/.ssh/config`:
 
-Donde había antes: 
-127.0.0.1	localhost
-**127.0.1.1	ubuntu**
+![~/.ssh/config](https://i.imgur.com/7SQWUlO.jpg)
 
-Pondría ahora:
-127.0.0.1	localhost
-**127.0.1.1	iaas-dsi31**
+Añadiendo así las líneas, líneas 16, 17 y 18 del archivo de la siguiente imagen:
 
-Ya con ello habríamos cambiado el nombre del host, para guardar los cambios necesitaríamos actualizar y reiniciar la máquina, para ello haría en orden:
-> `sudo apt update`
-> `sudo apt upgrade`
-> `sudo reboot`  // Con esto reiniciaríamos
+![SSH Config](https://i.imgur.com/wT9STZO.jpg)
 
-**MIENTRAS ESTA SE REINICIA VAMOS A CONFIGURAR EL ACCESO DE LOCAL A LA MÁQUINA VIRTUAL**
+Con > `Ctrl + S` guardamos los cambios, pulsamos de nuevo la tecla > `F1`, en la opción > `Remote-SSH: Connect to Host...` encontraríamos así el host de nuestra máquina si la hemos configurado bien:
 
-Como queríamos que nuestro local tuviera el host de la máquina virtual, para poder conectarnos a ella de forma más rápida, tendríamos que editar el fichero **hosts** mediante:
-< `andreacc@DESKTOP-EMSOIU9:~$ sudo vi /etc/hosts`
+![Connect to iaas-dis31](https://i.imgur.com/5TFrqYr.jpg)
 
-Y añadir la ip y el host de nuestra máquina, en mi caso pondría:
-...
-> `10.6.XXX.XXX     iaas-dsi31`
+Al pinchar sobre el host **iaas-dsi31** entraría en remoto con mi MV si no hubiese ningún inconveniente. Como todo fue satisfactorio, lo siguiente fue comprobar que en efecto nos encontramos en nuestra máquina virtual, para ello en el panel superior abrimos una terminal o con la combinación > `Ctrl + Shift + ñ`, y en dicha terminal ponemos `hostname` para corroborar que estamos en la máquina virtual desde VSC:
 
-Una vez que tenemos el host necesitaré configurar la llave pública-privada, con el comando:
-> `andreacc@DESKTOP-EMSOIU9:~$ cat .ssh/id_rsa.pub`
+![Hostname](https://i.imgur.com/sFZgwtS.jpg)
 
-Nos mostrará la llave:
-
-『』[Llave pública-privada](https://drive.google.com/file/d/1tY3NSqwOnjAxTaY-txrG4an76O-ev7MD/view)
-
-Como ya se generó el par de llaves no debo hacer nada más. A continuación, una vez generadas las claves, ejecuto el comando:
-> `andreacc@DESKTOP-EMSOIU9:~$ ssh-copy-id usuario@iaas-dsi31`
-Lo cual permitirá copiar mi clave pública desde la máquina local a la máquina virtual. Y trato de hacer inicio de sesion en la máquina virtual ejecutando el siguiente comando:
-> `andreacc@DESKTOP-EMSOIU9:~$ ssh usuario@iaas-dsi31`
-
-Con ello compruebo que ahora no necesito la ip de mi máquina y tampoco introducir contraseña, sino el host que tengo configurado para esta. Como tampoco quiero usar el nombre **usuario** para ello hago:
-> `vi ~/.ssh/config `
-
-Lo edito y pongo: 
-『』[ssh/config](https://drive.google.com/file/d/1ATeEnR2ufiHdiJKhw0RFgrEwywdWwTCU/view)
-     
-Ahora se puede iniciar una conexión SSH simplemente indicando el nombre de la máquina virtual tal que:
-> `andreacc@DESKTOP-EMSOIU9:~$ ssh iaas-dsi31 `
+Así observamos que se conectó corectamente.
 
 
-Finalmente, genero las claves pública-privada en mi máquina virtual también, siguiendo los pasos que seguí anteriormente:
-> `ssh-keygen 
-Generating public/private rsa key pair.
-Enter file in which to save the key (/home/usuario/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again:
-... `
+### SESIONES COLABORATIVA CON VISUAL STUDIO LIVE SHARE
 
-> `usuario@iaas-dsi31:~$ cat .ssh/id_rsa.pub `
 
-Generando así, la llave y finalizando la configuración de la máquina virtual.
 
 
 
