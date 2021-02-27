@@ -97,7 +97,7 @@ Con > `Ctrl + S` guardamos los cambios, pulsamos de nuevo la tecla > `F1`, en la
 
 ![Connect to iaas-dis31](https://i.imgur.com/5TFrqYr.jpg)
 
-Al pinchar sobre el host **iaas-dsi31** entraría en remoto con mi MV si no hubiese ningún inconveniente. Como todo fue satisfactorio, lo siguiente fue comprobar que en efecto nos encontramos en nuestra máquina virtual, para ello en el panel superior abrimos una terminal o con la combinación > `Ctrl + Shift + ñ`, y en dicha terminal ponemos `hostname` para corroborar que estamos en la máquina virtual desde VSC:
+Al pinchar sobre el host **iaas-dsi31** entraría en remoto con mi MV si no hubiese ningún inconveniente. Como todo fue satisfactorio, lo siguiente fue comprobar que en efecto nos encontramos en nuestra máquina virtual, para ello en el panel superior abrimos una nueva terminal o con la combinación > `Ctrl + Shift + ñ`, y en dicha terminal ponemos `hostname` para corroborar que estamos en la máquina virtual desde VSC:
 
 ![Hostname](https://i.imgur.com/sFZgwtS.jpg)
 
@@ -123,94 +123,34 @@ Estas extensiones las instalamos tanto en nuestra máquina local como remota, qu
 
 ![Extension pack](https://i.imgur.com/T49IKDV.jpg)
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Cuando ya están todas las extensiones instaladas las podemos probar siguiendo los pasos de la página anterior nombrada. Para finalizar, VSC con Lve Share pide vincularte con nuestra cuenta de GitHub:
+
+![Vincular extensiones](https://i.imgur.com/gXT1980.jpg)
+
+Probando buscar participantes:
+
+![Participantes](https://i.imgur.com/mKFBhhA.jpg)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
 
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
 
 
-## INSTALACIÓN DE GIT Y NODE.JS
+## PRIMER PROYECTO EN TYPESCRIPT: "HOLA MUNDO"
+
+En primer lugar instalamos la extensión obligatoria de **ESLint**, esta nos permite realizar comprobaciones de estilo sobre ficheros que incluyan código fuente en JavaScript y TypeScript.
+
+A continuación abrimos una Nueva Terminal, en VSC dentro de la conexión SSH con mi máquina virtual, en la barra superior de tareas o con la combinación > `Ctrl + Shift + ñ`. Y procederemos a instalar el compilador de TypeScript, y veremos la versión en la que se encuentra con el comando > `tsc --version` tal que:
+
+![Instalar compilador de TypeScript](https://i.imgur.com/j1JDNYP.jpg)
+
+Y en la terminal comprobamos la ruta en la que estamos situados con > `pwd` y creamos el directorio hello-world, en el que trabajaremos para crear nuestro primer programa de **"Hola Mundo"**
 
 
-Primero necesitamos instalar git mediante: 
-
-> `sudo apt install git`
-
-Y, una vez instalado todos los paquetes configuramos el git para vincularlo con nuestra cuenta de GitHub, tal que:
-> `git config --global user.name "Andrea Calero Caro"`
-> `git config --global user.email alu0101202952@ull.edu.es`
-> `git config --list `  // Con este comando veremos cómo se listaría lo antes configurado
-
-Quedando:
-> `user.name=Andrea Calero Caro
-   user.email=alu0101202952@ull.edu.es
-   core.repositoryformatversion=0
-   core.filemode=true
-   core.bare=false
-   core.logallrefupdates=true`
-   
-**AHORA SE CONFIGURARÍA EL PROMPT**
-
-Para modificar el prompt se siguen dos pasos sencillos, esto para bash:
-1. Descargar del script [git_prompt_script](https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh)
-
-Los pasos serían:
-> `mv git-prompt.sh .git-prompt.sh`
-
-2. Modificar el fichero  **~/.bashrc**, mediante:
-> `vi ~/.bashrc`
-
-Pegando al final del propio fichero las líneas:
-『』[vi ~/.bashrc](https://drive.google.com/file/d/1g7BxsLxBsmQA_NeC6j0rAxt2HZtyLw6l/view)
-
-Y así cambiaría el prompt quedando:
-『』[Prompt](https://drive.google.com/file/d/1hcIhewQhMGEXu3yhr_feQveXSBOyqrvu/view)
-
-Ahora reiniciaríamos para refrescar el prompt tal que:
-> `exec bash -l`
-
-##### Al finalizar: 
-
-Como tendremos que trabajar remotamente con repositorios del **GitHub**, necesitamos enlazar la cuenta de git con nuetsra máquina, siguiendo los siguientes pasos:
-1. Copiamos la llave pública de la máquina:
-『』[Llave-máquina](https://drive.google.com/file/d/1FCHyVj-SUK576aw9YtwifFhVs26ZC_S8/view)
-
-2. Vamos a la configuración de la cuenta en _Setting -> SSH and GPG keys_
-『』[Setting](https://drive.google.com/file/d/1C2Oa1mzrrPfoUjxxVgrgrAraVysSAVFf/view)
-『』[SSH and GPG keys](https://drive.google.com/file/d/1j6L5yQTB4dmAA23WYNu83gCPf1D5Q4dO/view)
-
-3. Creamor una nueva llave en el **botón verde** _New SSH key_
-『』[New SSH key](https://drive.google.com/file/d/1nD38rPk_ctYkgW10tn8fvhwsm-w4UZYb/view)
-
-4. Rellenaríamos los campos título con _usuario@iaas-dsi31_ y el campo Key o llave con la llave ya copiada en el **paso 1**
-『』[Add Key](https://drive.google.com/file/d/1AGFscblE97-UZAgUD9Ye-jNa0hirTVuZ/view)
-
-5. Ahora clonaremos el repositorio que hemos aceptado de tarea, tal que:
-> `git clone git@github.com:ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct01-iaas-alu0101202952.git` 
-
-6. Comprobamos con el comando `ls` y entramos en el repositorio clonado:
-『』[cd repositorio](https://drive.google.com/file/d/1vxcm51UgAyT2LhbvMSOHrJAKCQHmHGlT/view)
-
-##### Procedemos con la instalación de node.js y su control de versiones nvm
-
-Node.js es un entorno que permite la ejecución de código desarrollado en JavaScript y variantes, como por ejemplo, TypeScript, con el cual trabajaremos en la asignatura, para ello ejecutamos los comandos:
-『』[Instalar nvm](https://drive.google.com/file/d/1AhZan6jlpzNvfz9BnfNq3j2waaA6y0_t/view)
-
-Y con el comando `nvm install node` instalamos el entorno de código desarrollado en JavaScript.
-
-Como sabemos con el comando `... --version` veremos la versión con la que trabajaremos tanto en **node** como en **nvm**. En el caso del paquete que se nos instaló es la versión:
-『』[Versiones instaladas por defecto](https://drive.google.com/file/d/1QiIXDlzp4Je0DHhiIAPzqmsUU8hr2M9A/view)
-
-Para poder manejarnos entre versiones tenemos que saber unos comandos muy útiles como:
-
-##### COMANDOS ÚTILES
-
-- Saber qué versiones hay con el comando `list`:
-『』[Versiones que hay](https://drive.google.com/file/d/1_YQLNy66u_ZCjkSh9m18cYN4IqL1KQ_Z/view)
-
-- Instalar una versión concreta con el comando `install`:
-『』[Versión concreta](https://drive.google.com/file/d/1EhT-yDzr3rbGenykALdDLXYgmUwgR9wC/view)
-
-- Cambiar entre versiones con el comando `use`:
-『』[Cambiar entre versiones](https://drive.google.com/file/d/1dOCjJGDGPqnrBKUJVgrOjWB8_zVMBjdX/view)
 
 
 
