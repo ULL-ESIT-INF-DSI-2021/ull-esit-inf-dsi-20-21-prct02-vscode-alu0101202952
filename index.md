@@ -53,23 +53,14 @@ Los objetivos en esta práctica serán la instalación y configuración de Visua
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
 
 
-## PASOS PREVIOS
+## PASOS PREVIOS: ACEPTACIÓN DE TAREA DE GITHUB CLASSROOM
 
 
 Antes de comenzar se nos requiere que aceptemos la tarea asignada en el GitHub Classroom:
 
-![Asignación GitHub Classroom](https://imgur.com/JPwjWBt)
+![Asignación GitHub Classroom](https://imgur.com/gallery/8MJ62oY)
 
-1. Cumplimentar la encuesta de elección de grupo de trabajo, en mi caso estaría en el **"Grupo J"** de trabajo.
-
-2. Cumplimentar la encuesta sobre expectativas y conocimientos previos, la cual ya he realizado.
-
-3. Darse de alta en el aula Google Classroom de la asignatura. Para ello seleccionamos nuestro correo institucional y seleccionamos que somos **alumnos**.
-
-4. Como ya poseía una cuenta GitHub asociada a mi correo institucional (alu0101202952@ull.edu.es), solicité los beneficios de GitHub Education y acepté la asignación del GitHub Classroom asociada a esta práctica. En caso contrario, debería de haberme creado dicha cuenta en la comunidad y realizar los pasos anteriores.
-
-5. Como para el desarrollo de esta práctica y su respectivo informe necesito conocimientos en **GitHub Pages**, **Markdown** y **Jekyll**. Mediante diversas búsquedas en páginas web, las cuales muestro en el apartado bibliografía de este informe, conseguí realizar el susudicho con el estilo que se me requiere.
-
+Con ello ya podríamos trabajar en esta práctica.
 
 
 
