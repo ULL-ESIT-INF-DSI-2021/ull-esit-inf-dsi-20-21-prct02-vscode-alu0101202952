@@ -107,7 +107,21 @@ Así observamos que se conectó corectamente.
 ### SESIONES COLABORATIVA CON VISUAL STUDIO LIVE SHARE
 
 
+Visual Studio Live Share permite colaborar en las tareas de desarrollo en tiempo real, y para usarlo necesitamos instalar su paquete de extensiones junto con todas las extensiones recomendadas que se puede encontrar al final del siguiente sitio Web:
 
+『 』[Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack)
+
+Instalando así las extensiones recomendadas y las propias del pack de Live Share:
+
+![Extension recomendada 1](https://i.imgur.com/DwZajTg.jpg)
+
+![Extension recomendada 2](https://i.imgur.com/2CTgmiu.jpg)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Estas extensiones las instalamos tanto en nuestra máquina local como remota, quedando guardadas todas las extensiones:
+
+![Extension pack](https://i.imgur.com/T49IKDV.jpg)
 
 
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
