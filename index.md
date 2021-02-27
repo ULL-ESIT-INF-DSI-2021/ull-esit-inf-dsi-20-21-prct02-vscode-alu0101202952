@@ -1,9 +1,9 @@
 
 
-# Informe Práctica 1: Configuración de máquina virtual en el IaaS
+# Informe Práctica 2: Instalación y configuración de Visual Studio Code
 
 
-![Image](https://www.ull.es/servicios/stic/wp-content/uploads/sites/2/2016/05/VDI-1.png)
+![Image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.programaenlinea.net%2Fplugins-para-visual-studio-code%2F&psig=AOvVaw0QGlOgvohMyy2lJKnKK2jn&ust=1614516600673000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDm9ZWNiu8CFQAAAAAdAAAAABAD)
 
 
 
@@ -11,7 +11,7 @@
 
 > - Autora: Andrea Calero Caro
 > - Alu: [alu0101202952@ull.edu.es](alu0101202952@ull.edu.es)
-> - Práctica: 1 Configuración de máquina virtual en el IaaS
+> - Práctica: 2 Instalación y configuración de Visual Studio Code
 > - Asignatura: Desarrollo de Sistemas Informáticos
 > - Universidad de La Laguna
 
@@ -45,7 +45,7 @@
 ## OBJETIVOS
 
 
-Los objetivos en esta práctica serán la configuración de la máquina virtual IaaS de la ULL, además de la instalación y configuración de todas las herramientas necesarias para comenzar a trabajar en la asignatura, como es git y node.js. Todo ello junto con la presentación de este informe y el desarrollo del mismo en GitHub Pages.
+Los objetivos en esta práctica serán la instalación y configuración de Visual Studio Code, además de nuestro primer proyecto en TypeScript: “Hola Mundo”. Todo ello junto con la presentación de este informe y el desarrollo del mismo en GitHub Pages.
 
 
 
@@ -56,7 +56,9 @@ Los objetivos en esta práctica serán la configuración de la máquina virtual 
 ## PASOS PREVIOS
 
 
-Antes de comenzar se nos requiere una serie de pasos previos para introducirnos en la asignatura.
+Antes de comenzar se nos requiere que aceptemos la tarea asignada en el GitHub Classroom:
+
+![Asignación GitHub Classroom](https://imgur.com/JPwjWBt)
 
 1. Cumplimentar la encuesta de elección de grupo de trabajo, en mi caso estaría en el **"Grupo J"** de trabajo.
 
